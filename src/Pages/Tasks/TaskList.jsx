@@ -13,7 +13,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import { Box, Button, Divider, Stack, Typography } from "@mui/material";
 import { deleteTasks, getTask } from "../../Api";
 
-export default function ProductList() {
+export default function TaskList() {
 
   const [data, setData] = useState([]);
 
@@ -43,8 +43,11 @@ export default function ProductList() {
           variant="h5"
           component="div"
           sx={{ padding: "20px" }}
+          align="center"
+          fontSize="30px"
+          fontFamily="revert-layer"
         >
-          User List
+          USER TASK LIST
         </Typography>
         <Divider />
         <Box height={80} style={{ padding: "10px" }}>
@@ -57,9 +60,9 @@ export default function ProductList() {
             <Button variant="contained" endIcon={<AddCircleOutlineIcon />}>
               <Link
                 style={{ color: "white", textDecoration: "none" }}
-                to={"/addProduct"}
+                to={"/taskbar/addTask"}
               >
-                ADD
+                ADD TASK
               </Link>
             </Button>
           </Stack>
@@ -68,21 +71,21 @@ export default function ProductList() {
           <Table stickyHeader aria-label="sticky table">
             <TableHead>
               <TableRow>
-                <TableCell align="left">Title</TableCell>
-                <TableCell align="left" style={{ minWidth: "100px" }}>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px",fontFamily:"monospace" }}>Title</TableCell>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px",fontFamily:"monospace" }}>
                   Description
                 </TableCell>
-                <TableCell align="left" style={{ minWidth: "100px" }}>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px",fontFamily:"monospace" }}>
                   Due-Date
                 </TableCell>
-                <TableCell align="left" style={{ minWidth: "100px" }}>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px",fontFamily:"monospace" }}>
                   Priority
                 </TableCell>
-                <TableCell align="left" style={{ minWidth: "100px" }}>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px" ,fontFamily:"monospace" }}>
                   Status
                 </TableCell>
 
-                <TableCell align="left" style={{ minWidth: "100px" }}>
+                <TableCell align="left" style={{ minWidth: "100px",fontSize:"20px", fontFamily:"monospace" }}>
                   Action
                 </TableCell>
               </TableRow>
@@ -99,7 +102,7 @@ export default function ProductList() {
                       <TableCell align="left">{ele.status}</TableCell>
                       <TableCell align="left">
                         <button style={{ margin: "5px" }}>
-                          <Link to={`/editProduct/${ele._id}`}>
+                          <Link to={`editTask/${ele._id}`}>
                             <EditIcon
                               style={{
                                 fontSize: "20px",

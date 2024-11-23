@@ -1,5 +1,5 @@
 import { styled, useTheme } from "@mui/material/styles";
-import Box from "@mui/material/Box";
+
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -15,6 +15,7 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import { useNavigate } from "react-router-dom";
 import { useAppStore } from "../appStore";
 import PollIcon from '@mui/icons-material/Poll';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const drawerWidth = 240;
 
@@ -78,7 +79,7 @@ export default function SideNav() {
   const open = useAppStore((state) => state.dopen);
 
   return (
-    <Box sx={{ display: "flex" }}>
+   <>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
@@ -92,11 +93,78 @@ export default function SideNav() {
         </DrawerHeader>
         <Divider />
         <List>
+
+
+
+        <ListItem
+            disablePadding
+            sx={{ display: "block" }}
+            onClick={() => {
+              navigate();
+            }}
+          >
+            <ListItemButton
+              sx={[
+                {
+                  minHeight: 48,
+                  px: 2.5,
+                },
+                open
+                  ? {
+                      justifyContent: "initial",
+                    }
+                  : {
+                      justifyContent: "center",
+                    },
+              ]}
+            >
+              <ListItemIcon
+                sx={[
+                  {
+                    minWidth: 0,
+                    justifyContent: "center",
+                  },
+                  open
+                    ? {
+                        mr: 3,
+                      }
+                    : {
+                        mr: "auto",
+                      },
+                ]}
+              >
+                <AccountCircleIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Vinay"
+                sx={[
+                  open
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0,
+                      },
+                ]}
+              />
+            </ListItemButton>
+          </ListItem>
+
+        
+
+
+
+
+
+
+
+
+
           <ListItem
             disablePadding
             sx={{ display: "block" }}
             onClick={() => {
-              navigate("/");
+              navigate("/taskbar");
             }}
           >
             <ListItemButton
@@ -149,7 +217,7 @@ export default function SideNav() {
             disablePadding
             sx={{ display: "block" }}
             onClick={() => {
-              navigate("/analytics");
+              navigate("/taskbar/analytics");
             }}
           >
             <ListItemButton
@@ -202,7 +270,7 @@ export default function SideNav() {
             disablePadding
             sx={{ display: "block" }}
             onClick={() => {
-              navigate("/addProduct");
+              navigate("/taskbar/addTask");
             }}
           >
             <ListItemButton
@@ -238,7 +306,7 @@ export default function SideNav() {
                 <InboxIcon />
               </ListItemIcon>
               <ListItemText
-                primary="addProduct"
+                primary="addTask"
                 sx={[
                   open
                     ? {
@@ -254,6 +322,6 @@ export default function SideNav() {
           
         </List>
       </Drawer>
-    </Box>
+      </>
   );
 }

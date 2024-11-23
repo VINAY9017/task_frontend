@@ -22,7 +22,13 @@
     background: linear-gradient(158deg,rgba(40, 34, 70, 1) 0%,rgba(30, 47, 141, 1) 100%);
 }
 
-.bgcolor{
-    background: #ECEFF1;
-    background: linear-gradient(158deg, rgb(224, 224, 224) 0%, rgb(223,237,254)100%);
-}
+.bgcolor {
+    background-color: #f0f0f0;
+  }
+  
+  @media (max-width: 600px) {
+    .bgcolor {
+      background-color: #e0e0e0; /* Different background for smaller screens */
+    }
+  }
+  

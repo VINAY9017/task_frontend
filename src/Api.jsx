@@ -9,7 +9,7 @@ export const getTask = async () => {
 };
 
 
-export const addTask = async (bodydata) => {
+export const addTaskApi = async (bodydata) => {
     const res = await fetch("http://localhost:4500/api/tasks/create", {
         method: "POST",
         headers: {
@@ -57,3 +57,8 @@ export const singleTasks = async (i) => {
     })
     return res.json()
 }
+
+
+
+
+
